@@ -6,6 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
+    public function author()
+    {
+      return $this->belongsTo(User::class);
+    }
+
+    // accessor
     public function getImageUrlAttribute($value)
     {
       $imageUrl = "";
@@ -16,5 +22,17 @@ class Post extends Model
       }
 
       return $imageUrl;
+    }
+
+    //use Carbon class for DateTime
+    public function getDateAttribute($value)
+    {
+      return $this->created_at->diffForHumans();
+    }
+
+    //new scope for latestFirst from BlogController
+    public function scopeLatestFirst($query)
+    {
+      return $query->orderBy('created_at', 'desc');
     }
 }
