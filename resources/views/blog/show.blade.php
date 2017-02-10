@@ -26,7 +26,7 @@
                                 </ul>
                             </div>
                                 <p>
-                                  {{ $post->body }}
+                                  {!! $post->body_html !!}
                                 </p>
                             </div>
                     </div>
