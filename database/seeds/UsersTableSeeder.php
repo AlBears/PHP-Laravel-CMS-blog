@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Faker\Factory;
 
 class UsersTableSeeder extends Seeder
 {
@@ -14,24 +15,29 @@ class UsersTableSeeder extends Seeder
         DB::statement('SET FOREIGN_KEY_CHECKS=0');
         DB::table('users')->truncate();
 
+        $faker = Factory::create();
+
         DB::table('users')->insert([
           [
             'name' => 'John Doe',
             'slug' => 'john-doe',
             'email' => 'johndoe@test.com',
-            'password' => bcrypt('secret')
+            'password' => bcrypt('secret'),
+            'bio' => $faker->text(rand(250, 300))
           ],
           [
             'name' => 'Jane Doe',
             'slug' => 'jane-doe',
             'email' => 'janedoe@test.com',
-            'password' => bcrypt('secret')
+            'password' => bcrypt('secret'),
+            'bio' => $faker->text(rand(250, 300))
           ],
           [
             'name' => 'Peter Doe',
             'slug' => 'peter-doe',
             'email' => 'peterdoe@test.com',
-            'password' => bcrypt('secret')
+            'password' => bcrypt('secret'),
+            'bio' => $faker->text(rand(250, 300))
           ]
 
         ]);
