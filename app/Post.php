@@ -53,7 +53,12 @@ class Post extends Model
     //new scope for latestFirst from BlogController
     public function scopeLatestFirst($query)
     {
-      return $query->orderBy('created_at', 'desc');
+      return $query->orderBy('published_at', 'desc');
+    }
+    //new scope for popular from composerserviceprovider
+    public function scopePopular($query)
+    {
+      return $query->orderBy('view_count', 'desc');
     }
 
     public function scopePublished($query)
