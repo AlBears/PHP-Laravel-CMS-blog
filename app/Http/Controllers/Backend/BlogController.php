@@ -7,6 +7,7 @@ use App\Http\Requests\PostRequest;
 use App\Post;
 use Intervention\Image\Facades\Image;
 
+
 class BlogController extends BackendController
 {
     protected $limit = 5;
@@ -103,7 +104,8 @@ class BlogController extends BackendController
      */
     public function edit($id)
     {
-        //
+        $post = Post::findOrFail($id);
+        return view("backend.blog.edit", compact('post'));
     }
 
     /**
@@ -113,9 +115,12 @@ class BlogController extends BackendController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(PostRequest $request, $id)
     {
-        //
+        $post = Post::findOrFail($id);
+        $data = $this->handleRequest($request);
+        $post->update($data);
+        return redirect('/backend/blog')->with('message', 'Your post was updated successfully!');
     }
 
     /**
