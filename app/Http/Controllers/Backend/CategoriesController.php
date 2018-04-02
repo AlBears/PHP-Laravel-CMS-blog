@@ -92,6 +92,7 @@ class CategoriesController extends BackendController
      */
     public function destroy(Requests\CategoryDestroyRequest $request, $id)
     {
+        
         Post::withTrashed()->where('category_id', $id)->update(['category_id' => config('cms.default_category_id')]);
 
         $category = Category::findOrFail($id);

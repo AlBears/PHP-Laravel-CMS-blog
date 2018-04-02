@@ -41,3 +41,7 @@ Route::resource('/backend/blog', 'Backend\BlogController', [
 Route::resource('/backend/categories', 'Backend\CategoriesController', [
   'as' => 'backend'
 ]);
+
+Route::resource('/backend/users', 'Backend\UsersController', [
+  'as' => 'backend'
+]);
