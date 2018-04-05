@@ -9,7 +9,8 @@
         "graham-campbell/markdown": "^7.1",
         "intervention/image": "^2.3",
         "laravel/framework": "5.3.*",
-        "laravelcollective/html": "^5.3.0"
+        "laravelcollective/html": "^5.3.0",
+        "santigarcor/laratrust": "3.0.*"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
